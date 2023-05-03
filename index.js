@@ -1,13 +1,19 @@
 let readlineSync = require("readline-sync");
+let chalk = require("chalk")
+
 
 let score = 0
 
-let userScores = [];
+let otherScores = {
+  name:"Priyanka",
+  points: 5
+};
 
-let userName = readlineSync.question("What is your good name? ")
+let userName = readlineSync.question(chalk.blueBright("What is your good name?"))
 
 function welcome() {
-  console.log("Welcome " + userName + " in HOW WELL YOU KNOW PRIYAL")
+  console.log(chalk.magentaBright("Welcome " + userName + " in HOW WELL YOU KNOW PRIYAL"))
+  console.log(chalk.yellow("---------------------------"))
 }
 
 welcome()
@@ -29,28 +35,22 @@ for (let i = 0; i < questions.length; i++) {
 function gameStart(question, answer) {
   let userAnswer = readlineSync.question(question)
   if (userAnswer.toUpperCase() === answer.toUpperCase()) {
-    console.log("Great! That's right")
-    console.log("--------------------")
+    console.log(chalk.green("Great! That's right"))
     score++
   }
   else {
-    console.log("Oops! you got it wrong!!")
-    console.log("--------------------")
+    console.log(chalk.red("Oops! you got it wrong!!"))
+    
   }
+  console.log(chalk.greenBright("Your current score: ", score));
+  console.log(chalk.yellow("---------------------------"))
 }
 
-function addUserScore(name, score) {
-  let UserPoints = {
-    name: name,
-    score: score
-  }
-  userScores.push(UserPoints)
-}
-addUserScore(userName, score)
+function displayScore(){
+console.log(chalk.magentaBright(`YAY! Your Total Score Is ${score}. Well Done Potterhead.`))
 
-function yourScore(){
-  console.log(`${userName} your score is ${score}`)
-  userScores.map(score => console.log(score.name+":"+ score.score))
-}
+console.log(chalk.yellow("-----------------------------"))
 
-yourScore()
+console.log( chalk.red(`Others Score: ${otherScores.name} secure ${otherScores.points} points`))}
+
+displayScore()
