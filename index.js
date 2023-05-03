@@ -30,10 +30,12 @@ function gameStart(question, answer) {
   let userAnswer = readlineSync.question(question)
   if (userAnswer.toUpperCase() === answer.toUpperCase()) {
     console.log("Great! That's right")
+    console.log("--------------------")
     score++
   }
   else {
     console.log("Oops! you got it wrong!!")
+    console.log("--------------------")
   }
 }
 
