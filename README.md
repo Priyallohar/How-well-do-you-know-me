@@ -5,7 +5,7 @@ This quiz has 5 questions about me for every correct question you will be awarde
 
 ---
 
-photo
+![]()
 
 ---
 ### Tech Used: ###
